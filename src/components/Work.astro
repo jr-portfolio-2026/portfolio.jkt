@@ -1,0 +1,31 @@
+---
+import { home } from '../content/home';
+const w = home.work;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<section class="section work dark" id="work">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="label">{w.label}</p>
+      <div><h2 class="display">{w.title}</h2><p>{w.intro}</p></div>
+    </div>
+    <ol class="projects">
+      {w.projects.map((p, n) => {
+        const live = p.status === 'live';
+        const Tag = live ? 'a' : 'div';
+        const props = live ? { href: `${base}/work/${p.slug}` } : {};
+        return (
+          <li class="reveal">
+            <Tag class="project" data-label={live ? 'View case study' : 'In preparation'} {...props}>
+              <span class="project__index">{String(n + 1).padStart(2, '0')}</span>
+              <h3 class="project__title">{p.title}</h3>
+              <span class="project__meta"><span>{p.category}</span><span>{p.year}</span></span>
+              <span class="project__status">{live ? 'Case study' : 'In preparation'}</span>
+            </Tag>
+          </li>
+        );
+      })}
+    </ol>
+  </div>
+  <div class="cursor-label" data-cursor aria-hidden="true"></div>
+</section>

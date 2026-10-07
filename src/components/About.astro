@@ -1,0 +1,20 @@
+---
+import { home } from '../content/home';
+const a = home.about;
+---
+<section class="section about" id="about">
+  <div class="container about__grid">
+    <p class="label">{a.label}</p>
+    <div>
+      <p class="about__statement" data-words>{a.statement}</p>
+      <dl class="facts reveal">
+        {a.facts.map((f) => <div><dt>{f.k}</dt><dd>{f.v}</dd></div>)}
+      </dl>
+    </div>
+    <aside class="reveal">
+      <div class="portrait" role="img" aria-label={a.portrait.caption}>
+        <span class="glass">{a.portrait.caption}</span>
+      </div>
+    </aside>
+  </div>
+</section>

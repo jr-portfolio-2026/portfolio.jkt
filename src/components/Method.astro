@@ -1,0 +1,18 @@
+---
+import { home } from '../content/home';
+const m = home.method;
+---
+<section class="section method" id="method">
+  <div class="container">
+    <div class="section-head reveal"><p class="label">{m.label}</p><h2 class="display">{m.title}</h2></div>
+    <ol class="steps">
+      {m.steps.map((s, n) => (
+        <li class="step reveal">
+          <span class="step__n">{String(n + 1).padStart(2, '0')}</span>
+          <h3>{s.title}</h3>
+          <p>{s.text}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

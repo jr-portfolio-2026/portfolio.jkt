@@ -1,0 +1,25 @@
+---
+import { home } from '../content/home';
+import { site } from '../content/site';
+const c = home.contact;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const links = [
+  { label: 'LinkedIn', href: site.links.linkedin },
+  { label: 'GitHub', href: site.links.github },
+].filter((l) => l.href);
+---
+<section class="section contact dark" id="contact">
+  <div class="container">
+    <p class="label reveal">{c.label}</p>
+    <h2 class="contact__title reveal" style="margin-top:1.5rem">{c.title}</h2>
+    <a class="contact__mail reveal" href={`mailto:${site.email}`}>{site.email}</a>
+    <div class="contact__meta reveal">
+      <span>{c.note}</span>
+      {links.map((l) => <a href={l.href} rel="noopener" target="_blank">{l.label}</a>)}
+    </div>
+    <footer class="footer">
+      <span>© {site.year} {site.name}</span>
+      <a href={`${base}/#top`}>Back to top</a>
+    </footer>
+  </div>
+</section>

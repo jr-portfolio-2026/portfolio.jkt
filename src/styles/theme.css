@@ -1,0 +1,40 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   THEME — the only place colours, fonts and rhythm are decided.
+   Change this file to re-skin the whole site.
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  /* palette (from the design charter) */
+  --ivory: #f6f3ec;
+  --paper: #fbf9f4;
+  --stone: #e7e2d6;
+  --mist: #c8dce3;
+  --navy: #153765;
+  --navy-deep: #0b1f37;
+  --ink: #0e1e33;
+  --muted: #4b5c70;
+  --gold: #ab894b;       /* lines, dots, accents on dark — decorative on light */
+  --gold-text: #80622a;  /* gold as readable text on light grounds (AA) */
+  --green: #193c35;
+  --on-dark: #f6f3ec;
+  --on-dark-muted: #aebbcb;
+  --line: color-mix(in srgb, var(--navy) 16%, transparent);
+  --line-dark: color-mix(in srgb, var(--on-dark) 18%, transparent);
+
+  /* type */
+  --font-display: 'Instrument Serif', 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-ui: 'Geist Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fs-hero: clamp(3.1rem, 1.2rem + 9.2vw, 10.5rem);
+  --fs-h2: clamp(2.25rem, 1.4rem + 3.6vw, 5rem);
+  --fs-statement: clamp(1.85rem, 1rem + 3.2vw, 3.75rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.8125rem;
+
+  /* layout */
+  --gutter: clamp(1.25rem, 5vw, 4.5rem);
+  --maxw: 90rem;
+  --header-h: 4rem;
+  --section-y: clamp(5rem, 12vw, 11rem);
+
+  /* motion */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}

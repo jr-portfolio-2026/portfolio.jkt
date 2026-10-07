@@ -1,0 +1,23 @@
+---
+import { home } from '../content/home';
+const h = home.hero;
+const arrow = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg>';
+---
+<section class="hero" id="top">
+  <div class="hero__field" data-hero-field aria-hidden="true"><canvas></canvas></div>
+  <div class="container hero__inner">
+    <p class="hero__eyebrow">{h.eyebrow}</p>
+    <h1 class="hero__title" data-resolve set:html={h.title} />
+    <div class="hero__row">
+      <p class="hero__sub reveal">{h.sub}</p>
+      <div class="hero__cta reveal">
+        <a class="btn btn--solid" href={h.primary.href}>{h.primary.label}<Fragment set:html={arrow} /></a>
+        <a class="btn btn--ghost" href={h.secondary.href}>{h.secondary.label}</a>
+      </div>
+    </div>
+  </div>
+  <div class="container hero__foot">
+    <span>{h.footerLeft}</span>
+    <span class="cue">{h.footerRight}<i aria-hidden="true"></i></span>
+  </div>
+</section>

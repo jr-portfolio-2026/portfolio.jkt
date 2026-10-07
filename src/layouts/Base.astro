@@ -1,0 +1,37 @@
+---
+import '@fontsource/instrument-serif/400.css';
+import '@fontsource/instrument-serif/400-italic.css';
+import '@fontsource-variable/geist/wght.css';
+import '../styles/theme.css';
+import '../styles/base.css';
+import { site } from '../content/site';
+
+interface Props { title?: string; description?: string }
+const { title = site.meta.title, description = site.meta.description } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const og = site.meta.ogImage ? new URL(base + site.meta.ogImage, Astro.site ?? Astro.url).href : '';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f6f3ec" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {og && <meta property="og:image" content={og} />}
+    <meta name="twitter:card" content={og ? 'summary_large_image' : 'summary'} />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <slot />
+    <script>
+      import '../scripts/main.ts';
+    </script>
+  </body>
+</html>
