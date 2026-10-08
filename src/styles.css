@@ -1,0 +1,413 @@
+@import "tailwindcss" source(none);
+@source "../src";
+
+/* Fonts are self-hosted (no request to Google; works on poor venue wifi). */
+@import "@fontsource/cormorant-garamond/300.css";
+@import "@fontsource/cormorant-garamond/400.css";
+@import "@fontsource/cormorant-garamond/400-italic.css";
+@import "@fontsource/cormorant-garamond/500.css";
+@import "@fontsource-variable/manrope/wght.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * J.R — Design system
+ * Ivory paper, navy ink, mist blue, restrained gold foil.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-mist: var(--mist);
+  --color-gold: var(--gold);
+  --color-forest: var(--forest);
+  --color-ivory: var(--ivory);
+  --color-ivory-deep: var(--ivory-deep);
+  --color-cobalt: var(--cobalt);
+  --color-cobalt-deep: var(--cobalt-deep);
+  --color-cobalt-foreground: var(--cobalt-foreground);
+
+
+  --font-serif: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: "Manrope Variable", "Manrope", "Helvetica Neue", sans-serif;
+
+  --shadow-relief: var(--shadow-relief);
+  --shadow-paper: var(--shadow-paper);
+
+  --ease-breath: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-shimmer: shimmer 4.5s var(--ease-breath) infinite;
+  --animate-grain: grain 9s steps(6) infinite;
+  --animate-breathe: breathe 6s ease-in-out infinite;
+  --animate-rise: rise 1.2s var(--ease-breath) both;
+  --animate-hairline: hairline 1.6s var(--ease-breath) both;
+}
+
+:root {
+  --radius: 0.125rem;
+
+  --ivory: oklch(0.975 0.006 85);
+  --ivory-deep: oklch(0.945 0.009 80);
+  --navy: oklch(0.33 0.085 258); /* #153765 */
+  --navy-deep: oklch(0.225 0.06 255); /* #0b1f37 */
+  --mist: oklch(0.87 0.03 210); /* #c8dce3 */
+  --gold: oklch(0.64 0.085 80); /* #ab894b */
+  --forest: oklch(0.33 0.045 170); /* #193c35 */
+  --cobalt: oklch(0.32 0.16 266); /* #002679 */
+  --cobalt-deep: oklch(0.22 0.12 265); /* #001442 */
+  --cobalt-foreground: oklch(0.96 0.012 230);
+
+
+  --background: var(--ivory);
+  --foreground: var(--navy-deep);
+  --card: oklch(0.985 0.004 85);
+  --card-foreground: var(--navy-deep);
+  --popover: oklch(0.985 0.004 85);
+  --popover-foreground: var(--navy-deep);
+  --primary: var(--navy);
+  --primary-foreground: var(--ivory);
+  --secondary: var(--ivory-deep);
+  --secondary-foreground: var(--navy);
+  --muted: var(--ivory-deep);
+  --muted-foreground: oklch(0.5 0.035 255);
+  --accent: var(--mist);
+  --accent-foreground: var(--navy-deep);
+  --destructive: oklch(0.55 0.18 25);
+  --destructive-foreground: var(--ivory);
+  --border: oklch(0.33 0.085 258 / 14%);
+  --input: oklch(0.33 0.085 258 / 18%);
+  --ring: var(--gold);
+
+  --shadow-relief:
+    0 1px 0 oklch(1 0 0 / 70%) inset,
+    0 -1px 0 oklch(0.33 0.085 258 / 8%) inset,
+    0 18px 40px -24px oklch(0.225 0.06 255 / 35%);
+  --shadow-paper:
+    0 1px 2px oklch(0.225 0.06 255 / 6%),
+    0 24px 60px -30px oklch(0.225 0.06 255 / 28%);
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-140%) skewX(-18deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  45% {
+    transform: translateX(140%) skewX(-18deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(140%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
+@keyframes grain {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-1.5%, 1%);
+  }
+  40% {
+    transform: translate(1%, -1.5%);
+  }
+  60% {
+    transform: translate(-1%, -1%);
+  }
+  80% {
+    transform: translate(1.5%, 1.5%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.8;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes hairline {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Paper: ivory mineral texture built from layered gradients + SVG grain */
+@utility paper-surface {
+  background-color: var(--ivory);
+  background-image:
+    radial-gradient(ellipse at 18% 12%, oklch(1 0 0 / 70%) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 88%, oklch(0.87 0.03 210 / 22%) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 20%, oklch(0.64 0.085 80 / 7%) 0%, transparent 45%),
+    linear-gradient(180deg, oklch(0.978 0.006 85), oklch(0.955 0.009 82));
+}
+
+@utility grain-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
+  opacity: 0.45;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.16 0 0 0 0 0.24 0 0 0 0.09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: var(--animate-grain);
+}
+
+@utility fiber-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='0.012 0.4' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.5 0 0 0 0 0.4 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23f)'/></svg>");
+}
+
+/* Embossed relief text: ink pressed into paper */
+@utility text-relief {
+  color: var(--navy-deep);
+  text-shadow:
+    0 1px 0 oklch(1 0 0 / 65%),
+    0 -1px 0 oklch(0.225 0.06 255 / 18%);
+}
+
+@utility text-relief-soft {
+  text-shadow:
+    0 1px 0 oklch(1 0 0 / 55%),
+    0 2px 10px oklch(0.87 0.03 210 / 45%);
+}
+
+/* Secondary metadata: same look as meta-label, but guaranteed readable (AA) on ivory */
+@utility meta-soft {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: oklch(0.45 0.05 256);
+}
+
+/* Small editorial metadata */
+@utility meta-label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--navy);
+}
+
+@utility gold-hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+  opacity: 0.7;
+}
+
+@utility gold-shimmer-sweep {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 40%;
+    background: linear-gradient(90deg, transparent, oklch(0.8 0.09 82 / 55%), transparent);
+    animation: var(--animate-shimmer);
+  }
+}
+
+@utility card-relief {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-relief);
+}
+
+@utility dossier-visual {
+  position: relative;
+  min-height: 34rem;
+  background-color: var(--mist);
+  background-image:
+    linear-gradient(90deg, transparent 49.9%, oklch(0.33 0.085 258 / 10%) 50%, transparent 50.1%),
+    radial-gradient(ellipse at 20% 30%, oklch(1 0 0 / 85%), transparent 46%),
+    linear-gradient(135deg, var(--ivory-deep), var(--mist));
+  box-shadow: var(--shadow-paper);
+}
+
+@utility dossier-grid {
+  background-image:
+    linear-gradient(oklch(0.33 0.085 258 / 9%) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.33 0.085 258 / 9%) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to right, black, transparent 76%);
+}
+
+@utility dossier-glass {
+  border: 1px solid oklch(1 0 0 / 48%);
+  background: oklch(0.985 0.004 85 / 56%);
+  backdrop-filter: blur(18px) saturate(115%);
+  box-shadow: 0 24px 70px -34px oklch(0.225 0.06 255 / 32%);
+  transition: backdrop-filter 600ms var(--ease-breath), background-color 600ms var(--ease-breath);
+  &:hover {
+    background: oklch(0.985 0.004 85 / 64%);
+    backdrop-filter: blur(32px) saturate(128%);
+  }
+}
+
+@utility glass-label {
+  border: 1px solid oklch(1 0 0 / 42%);
+  background: oklch(0.985 0.004 85 / 55%);
+  color: var(--navy-deep);
+  padding: 0.55rem 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  backdrop-filter: blur(18px);
+}
+
+@utility chromatic-edge {
+  pointer-events: none;
+  box-shadow:
+    inset 3px 0 0 oklch(0.87 0.09 210 / 22%),
+    inset -3px 0 0 oklch(0.64 0.1 80 / 18%);
+  mix-blend-mode: color;
+  opacity: 0.45;
+  transition: opacity 700ms var(--ease-breath), box-shadow 700ms var(--ease-breath);
+  .group:hover & {
+    opacity: 0.8;
+    box-shadow:
+      inset 6px 0 0 oklch(0.87 0.09 210 / 28%),
+      inset -6px 0 0 oklch(0.64 0.1 80 / 24%);
+  }
+}
+
+/* Blue glass: inter-page transition, demos, wireframes, portrait frames */
+@utility page-transition {
+  background:
+    radial-gradient(ellipse at 25% 20%, oklch(0.42 0.17 262 / 85%), transparent 60%),
+    linear-gradient(140deg, var(--cobalt-deep), var(--cobalt) 55%, var(--cobalt-deep));
+  color: var(--cobalt-foreground);
+}
+
+@utility transition-glass {
+  border: 1px solid oklch(1 0 0 / 18%);
+  background: linear-gradient(120deg, oklch(1 0 0 / 3%), oklch(0.87 0.03 210 / 16%), oklch(1 0 0 / 3%));
+  backdrop-filter: blur(26px) saturate(130%);
+  filter: blur(2px);
+}
+
+@utility demo-stage {
+  background:
+    radial-gradient(ellipse at 80% 10%, oklch(0.45 0.16 262 / 70%), transparent 60%),
+    linear-gradient(150deg, var(--cobalt-deep), var(--cobalt));
+  color: var(--cobalt-foreground);
+  box-shadow: var(--shadow-paper);
+}
+
+@utility demo-glass {
+  border: 1px solid oklch(1 0 0 / 16%);
+  background: oklch(1 0 0 / 7%);
+  backdrop-filter: blur(22px) saturate(125%);
+  box-shadow: 0 30px 80px -40px oklch(0.15 0.1 265 / 80%);
+}
+
+@utility blue-portrait-frame {
+  border: 1px solid oklch(0.32 0.16 266 / 22%);
+  background: linear-gradient(140deg, var(--mist), var(--ivory-deep));
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 60%) inset,
+    0 30px 80px -44px oklch(0.22 0.12 265 / 60%);
+}
+
+@utility wireframe-sheet {
+  border: 1px solid oklch(0.32 0.16 266 / 18%);
+  background: linear-gradient(180deg, oklch(0.99 0.004 85), oklch(0.955 0.012 230));
+  box-shadow: 0 22px 60px -38px oklch(0.22 0.12 265 / 55%);
+}
+
+@layer base {
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* anchors must land below the fixed header, not under it */
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--mist);
+    color: var(--navy-deep);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

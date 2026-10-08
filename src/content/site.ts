@@ -1,19 +1,18 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// IDENTITY — the only file that holds who you are.
-// Everything here is a neutral template value. Run `npm run check:content`
-// to list what still needs replacing before the site is shared.
+// IDENTITY — the only file that says who this site belongs to.
+// Template values on purpose. `npm run check:content` lists what is still unfilled.
 // ─────────────────────────────────────────────────────────────────────────────
 export const site = {
-  name: 'Your Name',
-  initials: 'YN',
+  name: "Your Name", // full name, shown above the headline
+  initials: "J.R", // monogram: header, ghost watermark, footer
   year: 2026,
-  email: 'hello@example.com',
-  // Empty string = the link is hidden everywhere (no dead links).
-  links: { linkedin: '', github: '' },
+  email: "hello@example.com",
+  // An empty string hides the link everywhere. No dead links, ever.
+  links: { linkedin: "", github: "" },
   meta: {
-    title: 'Your Name — Law, Trade & Software',
+    title: "J.R — Law, Trade & Digital Systems",
     description:
-      'An international practice working where law, trade and software meet. Selected work, method and contact.',
-    ogImage: '', // 1200×630 image, e.g. '/og.png' — needed for good link previews
+      "Selected work across international law, trade, business strategy, institutional practice and applied digital tools.",
+    ogImage: "", // e.g. "/og.png" (1200×630). Needed for good link previews.
   },
 } as const;
