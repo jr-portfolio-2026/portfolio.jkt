@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#F7F4ED" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <link rel="alternate icon" href="%BASE_URL%favicon.ico" />
+    <!--app-head-->
+    <!--
+      Prerendered sections start hidden for their reveal animation. Without JavaScript they must
+      still be readable, so this override only exists in a <noscript> block.
+    -->
+    <noscript>
+      <style>
+        [style*="opacity:0"], [style*="opacity: 0"], [data-home-shell] {
+          opacity: 1 !important; transform: none !important; filter: none !important;
+        }
+      </style>
+    </noscript>
+  </head>
+  <body>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
