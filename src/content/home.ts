@@ -22,7 +22,7 @@ export const home = {
     //   "fields"    — names the fields in the headline itself, second clause in italic gold.
     statement: ["Always discovering.", "Always learning.", "Always making."],
     fields: { before: "International law, trade and business, ", emphasis: "read through digital systems." },
-    lede: "A student exploring French and international law, international trade, business and digital creation.",
+    lede: "A student exploring international trade, business and digital creation, with an academic background in French and English law.",
     scroll: "Scroll",
   },
 
