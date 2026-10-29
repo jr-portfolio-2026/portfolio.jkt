@@ -4,8 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#F7F4ED" />
+    <!--
+      favicon.svg carries both themes in one file (it has its own prefers-color-scheme
+      block), so the tab mark keeps its contrast on a light tab strip and a dark one.
+      favicon.ico is the fixed fallback for browsers that ignore SVG icons.
+    -->
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
-    <link rel="alternate icon" href="%BASE_URL%favicon.ico" />
+    <link rel="alternate icon" type="image/x-icon" href="%BASE_URL%favicon.ico" />
+    <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png" />
     <!--app-head-->
     <!--
       Prerendered sections start hidden for their reveal animation. Without JavaScript they must
