@@ -7,7 +7,7 @@ export const home = {
   // Agreed navigation. The section ids below are the existing ones; rename them
   // together with these hrefs if the labels settle permanently.
   nav: [
-    { label: "About us", href: "#presentation" },
+    { label: "About", href: "#presentation" },
     { label: "Fields", href: "#practice" },
     { label: "Work", href: "#work" },
     { label: "Contact", href: "#contact" },
