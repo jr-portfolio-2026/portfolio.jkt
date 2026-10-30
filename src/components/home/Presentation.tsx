@@ -58,9 +58,14 @@ export function Presentation() {
           <div className="dossier-grid absolute inset-0 opacity-30" aria-hidden />
         </motion.div>
 
-        <motion.span style={{ y: frontY }} className="glass-label absolute bottom-[22%] left-1/2 z-20 -translate-x-1/2 translate-y-6 whitespace-nowrap md:bottom-[20%] md:ml-52 md:translate-x-0">
-          {site.portrait.src ? site.name : site.portrait.caption}
-        </motion.span>
+        {/* The construction-site caption ("Portrait — to be supplied") only ever belonged
+            in the template preview. Once a real portrait is dropped in, its own small
+            caption of initials appears; until then, the frame speaks for itself. */}
+        {site.portrait.src && (
+          <motion.span style={{ y: frontY }} className="glass-label absolute bottom-[22%] left-1/2 z-20 -translate-x-1/2 translate-y-6 whitespace-nowrap md:bottom-[20%] md:ml-52 md:translate-x-0">
+            {site.name}
+          </motion.span>
+        )}
 
         <a href="#work" className="meta-label absolute bottom-4 left-1/2 z-20 inline-flex min-h-11 -translate-x-1/2 items-center gap-2 px-3 md:bottom-8">
           Selected work <ArrowDown className="size-3.5" aria-hidden />
