@@ -14,7 +14,7 @@ export const home = {
   ],
 
   // Candidate tagline — an editorial territory, not a professional claim. Used by Hero and Presentation.
-  tagline: { first: "LAW · TRADE · BUSINESS", second: "LAW · TRADE · BUSINESS" },
+  tagline: { first: "LAW · TRADE · BUSINESS", second: "BUSINESS · LAW · TRADE" },
   
   // second: "CONTRACTS · INCOTERMS · CUSTOMS · MARKETS · COMPLIANCE · LOGISTICS" },
   hero: {
