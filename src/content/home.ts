@@ -14,8 +14,9 @@ export const home = {
   ],
 
   // Candidate tagline — an editorial territory, not a professional claim. Used by Hero and Presentation.
-  tagline: { first: "LAW • TRADE • BUSINESS", second: "CONTRACTS · INCOTERMS · CUSTOMS · MARKETS · COMPLIANCE · LOGISTICS" },
-
+  tagline: { first: "LAW · TRADE · BUSINESS", second: "LAW · TRADE · BUSINESS" },
+  
+  // second: "CONTRACTS · INCOTERMS · CUSTOMS · MARKETS · COMPLIANCE · LOGISTICS" },
   hero: {
     // Two candidate voices. HEADLINE_VARIANT in components/home/Hero.tsx picks one.
     //   "statement" — temperament; the fields are named by the lede underneath.
