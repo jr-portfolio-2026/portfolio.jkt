@@ -31,8 +31,21 @@ export const home = {
     index: "01",
     title: "Presentation",
     note: "The person behind the dossier",
-    lead: "An emerging professional working where international rules, trade realities and digital tools meet.",
-    body: "The work moves from research and comparative analysis to structured data and interfaces that people can use. It is presented as it stands: some of it runs today, some is still being specified.",
+    // The three layouts in components/home/Presentation{Glossa,Route,Charter}.tsx all open with "Bonjour, I'm {site.name}."
+    // The greeting stays French in every language — a signature, not a translated string — and the
+    // name always comes from site.name, so it is never typed here or anywhere else in content.
+    lead: "Law didn’t hold my attention until I started building with it.",
+    // One story in four beats. Every layout reads this same list, so editing a sentence here
+    // changes it everywhere.
+    //   key   — the one-word label        title — the beat's heading
+    //   em    — a phrase a layout may stress; it must appear verbatim in `text`
+    //   see   — an optional cross-reference ("cf. …") to another section; null for none
+    chapters: [
+      { key: "Studied", title: "Two legal systems", text: "Common law first, then civil and public law.", em: "civil and public law", see: null },
+      { key: "Used", title: "Where it stuck", text: "The part that stuck was using them: trade rules, cross-border questions, problems that look like a freight calculation or a customs clause.", em: "a freight calculation or a customs clause", see: { label: "Fields of practice", href: "#practice" } },
+      { key: "Built", title: "FRET.IO", text: "When a tool doesn’t exist, I make it. FRET.IO started with a freight estimate done by hand, every time, and that wasn’t worth repeating.", em: "FRET.IO", see: { label: "Selected work", href: "#work" } },
+      { key: "Next", title: "Still open", text: "Where this goes next is open. One path leads back to the bar.", em: "back to the bar", see: { label: "Get in touch", href: "#contact" } },
+    ],
     facts: [
       { k: "Focus", v: "Law · Trade · Systems" },
       { k: "Practice", v: "Research to instrument" },
@@ -44,12 +57,23 @@ export const home = {
     index: "02",
     title: "Selected work",
     note: "Studies, with their status stated",
-    selectLabel: "Select a study",
-    openLabel: "Open case study",
-    notesLabel: "Case notes",
+    lede: "Four studies, at different stages, each kept honest about where it actually stands.",
+    // The line under the sheet on the left: the position comes from each project's `kind`.
+    // The cards
+    selectLabel: "Select a project",
+    selectHint: "Choose a plate to open it. The slow cycle stops as soon as you do.",
+    pause: "Pause the cycle",
+    play: "Resume the cycle",
+    cardOpen: "Open the study",
+    cardTry: "Try it",
+    railLabel: "How far along it is",
+    legend: "What each label means",
     workingNow: "Working now",
     nextRefinement: "Next refinement",
-    legend: "What each label means",
+    openLabel: "Open the case study",
+    demoLabel: "Live demo",
+    sourceLabel: "Source",
+    closing: "Further studies are added here as they are ready to be shown.",
   },
 
   practice: {
