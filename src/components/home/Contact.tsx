@@ -1,12 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowUpRight, Check, Copy, X } from "lucide-react";
-import { contact } from "@/content/contact";
 import { intro } from "@/content/intro";
 import { site } from "@/content/site";
 import { useIntroControl } from "@/components/intro/IntroContext";
 import { Mark } from "@/components/ui/Mark";
 import { ease } from "./motion";
+
+const contact = {
+  label: "Contact me",
+  rotatingWords: ["Connect.", "Exchange ideas.", "Talk business.", "Collaborate.", "Meet."],
+  invitationLines: ["Always discovering.", "Always learning.", "Always making.", "And always open to what comes next."],
+  openLabel: "Get in touch",
+  closeLabel: "Close",
+  panelTitle: "Let's start a conversation.",
+  panelBody: "Have a project, opportunity or idea in mind? Send a note.",
+  copyLabel: "Copy email",
+  copiedLabel: "Email copied",
+  writeLabel: "Write an email",
+  footerLine: "Law · Trade · Strategy · Software",
+} as const;
 
 export function Contact() {
   const c = contact;
