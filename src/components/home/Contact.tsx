@@ -114,12 +114,12 @@ export function Contact() {
             className={`grid w-full items-center gap-20 py-24 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-32 ${open ? "pointer-events-none" : ""}`}
           >
             <div className="max-w-[72rem]">
-              <h2 id={open ? undefined : "contact-title"} className="font-sans font-semibold uppercase tracking-[-0.055em] text-navy-deep">
+              <h2 id={open ? undefined : "contact-title"} className="flex items-baseline whitespace-nowrap font-sans text-[clamp(1.35rem,4.6vw,6rem)] font-semibold uppercase leading-none tracking-[-0.055em] text-navy-deep">
                 <span className="sr-only">Let's {c.rotatingWords.join(" Let's ")}</span>
-                <span aria-hidden className="block">
-                  <span className="block text-[clamp(3.2rem,7vw,7.4rem)] leading-[0.86]">Let's</span>
-                  <span className="relative mt-4 block h-[1em] w-full overflow-hidden text-[clamp(1.9rem,5vw,6.25rem)] leading-none md:mt-6">
-                    <span className="invisible block whitespace-nowrap">Exchange ideas.</span>
+                <span aria-hidden className="contents">
+                  <span className="shrink-0">Let's&nbsp;</span>
+                  <span className="relative block h-[1em] min-w-0 flex-1 overflow-hidden">
+                    <span className="invisible block">Exchange ideas.</span>
                     <AnimatePresence initial={false}>
                       <motion.span
                         key={word}
@@ -136,18 +136,17 @@ export function Contact() {
                 </span>
               </h2>
 
-              <div className="mt-28 border-t border-navy-deep/15 pt-8 md:mt-36 md:pt-10">
-                <div className="grid gap-5 sm:grid-cols-3 sm:gap-8">
-                  {c.invitationLines.slice(0, 3).map((line, index) => (
-                    <p key={line} className="flex items-baseline gap-3 font-sans text-[clamp(0.95rem,1.2vw,1.1rem)] leading-relaxed text-ink-soft">
-                      <span className="text-[0.65rem] font-semibold tracking-[0.16em] text-gold-ink">0{index + 1}</span>
-                      <span>{line}</span>
-                    </p>
-                  ))}
+              <div className="mt-24 border-t border-navy-deep/15 pt-10 md:mt-32 md:pt-12">
+                <div className="grid items-end gap-12 md:grid-cols-[minmax(0,0.8fr)_minmax(18rem,1.2fr)] md:gap-16 lg:gap-24">
+                  <p className="font-sans text-[clamp(1rem,1.35vw,1.25rem)] leading-[1.8] text-ink-soft">
+                    {c.invitationLines.slice(0, 3).map((line) => (
+                      <span key={line} className="block">{line}</span>
+                    ))}
+                  </p>
+                  <p className="max-w-[24ch] border-l border-gold/35 pl-8 font-serif text-[clamp(1.7rem,2.4vw,2.6rem)] font-light leading-[1.08] tracking-[-0.015em] text-gold-ink md:pl-12">
+                    {c.invitationLines[3]}
+                  </p>
                 </div>
-                <p className="mt-12 max-w-[22ch] font-serif text-[clamp(1.65rem,2.5vw,2.65rem)] font-light leading-[1.08] tracking-[-0.015em] text-gold-ink sm:ml-auto sm:text-right md:mt-16">
-                  {c.invitationLines[3]}
-                </p>
               </div>
             </div>
 
@@ -155,7 +154,7 @@ export function Contact() {
               ref={openButton}
               type="button"
               onClick={openContact}
-              className="group relative grid size-52 shrink-0 place-items-center rounded-full bg-gold text-center text-navy-deep shadow-paper transition-transform duration-500 hover:-translate-y-2 hover:scale-[1.025] focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-gold md:size-60"
+              className="group relative grid size-52 shrink-0 place-items-center rounded-full bg-gold text-center text-navy-deep shadow-paper transition-transform duration-500 hover:-translate-y-2 hover:scale-[1.025] focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-gold md:size-60 lg:mr-16 xl:mr-24"
             >
               <span aria-hidden className="absolute -inset-3 rounded-full border border-navy-deep/25" />
               <span className="flex max-w-32 items-center justify-center gap-2 font-serif text-2xl leading-tight md:text-3xl">
