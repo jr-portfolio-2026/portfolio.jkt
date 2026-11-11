@@ -12,22 +12,20 @@ const ease = [0.22, 1, 0.36, 1] as const;
 
 const List = ({ items }: { items: string[] }) => (
   <ul className="grid border-l border-t border-navy/10 sm:grid-cols-2">
-    {items.map((item, i) => (
+    {items.map((item) => (
       <li key={item} className="border-b border-r border-navy/10 bg-ivory p-6">
-        <span className="font-serif text-xl text-gold-ink">{String(i + 1).padStart(2, "0")}</span>
-        <p className="mt-8 font-serif text-xl leading-snug text-navy-deep md:text-2xl">{item}</p>
+        <p className="font-serif text-xl leading-snug text-navy-deep md:text-2xl">{item}</p>
       </li>
     ))}
   </ul>
 );
 
-function Section({ n, title, children, dark = false }: { n: string; title: string; children: ReactNode; dark?: boolean }) {
+function Section({ title, children, dark = false }: { title: string; children: ReactNode; dark?: boolean }) {
   return (
-    <section className={`px-6 py-16 md:px-10 md:py-28 ${dark ? "bg-cobalt text-cobalt-foreground" : ""}`} aria-labelledby={`s-${n}`}>
+    <section className={`px-6 py-16 md:px-10 md:py-28 ${dark ? "bg-cobalt text-cobalt-foreground" : ""}`} aria-labelledby={`s-${title}`}>
       <div className="mx-auto grid max-w-[90rem] gap-8 lg:grid-cols-[.55fr_1.45fr] lg:gap-16">
         <div>
-          <span className={`meta-label ${dark ? "!text-gold-soft" : "text-gold-ink"}`}>{n}</span>
-          <h2 id={`s-${n}`} className="mt-4 font-serif text-4xl font-light md:text-5xl">{title}</h2>
+          <h2 id={`s-${title}`} className="font-serif text-4xl font-light md:text-5xl">{title}</h2>
         </div>
         <div>{children}</div>
       </div>
@@ -60,10 +58,9 @@ export function ProjectPage({ project }: { project: Project }) {
     { title: "Process", node: <List items={project.process} /> },
     { title: "Output", dark: true, node: (
       <ul className="grid border-l border-t border-cobalt-foreground/15 sm:grid-cols-2">
-        {project.output.map((item, i) => (
+        {project.output.map((item) => (
           <li key={item} className="border-b border-r border-cobalt-foreground/15 p-6">
-            <span className="font-serif text-xl text-gold-soft">{String(i + 1).padStart(2, "0")}</span>
-            <p className="mt-8 font-serif text-2xl leading-snug">{item}</p>
+            <p className="font-serif text-2xl leading-snug">{item}</p>
           </li>
         ))}
       </ul>
@@ -107,10 +104,7 @@ export function ProjectPage({ project }: { project: Project }) {
       <main id="main" tabIndex={-1} className="outline-none">
         <section className="px-6 pb-16 pt-32 md:px-10 md:pb-24 md:pt-40">
           <div className="mx-auto max-w-[90rem]">
-            <div className="flex items-center justify-between border-b border-navy/10 pb-4">
-              <span className="meta-label">{String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}</span>
-              <span className="meta-soft">{project.status}</span>
-            </div>
+            <div className="flex justify-end border-b border-navy/10 pb-4"><span className="meta-soft">{project.status}</span></div>
             <div className="mt-12 grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-end">
               <motion.div initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease, delay: wipe ? 0.5 : 0 }}>
                 <p className="meta-label text-gold-ink">{project.category}</p>
@@ -126,7 +120,7 @@ export function ProjectPage({ project }: { project: Project }) {
                   </div>
                 )}
               </motion.div>
-              <ProjectPlate project={project} index={index} className="blue-portrait-frame aspect-[4/3] w-full" />
+              <ProjectPlate project={project} className="blue-portrait-frame aspect-[4/3] w-full" />
             </div>
             {(project.domains.length > 0 || project.technologies.length > 0) && (
               <dl className="mt-12 grid gap-6 border-t border-navy/10 pt-6 sm:grid-cols-3">
@@ -138,8 +132,8 @@ export function ProjectPage({ project }: { project: Project }) {
           </div>
         </section>
 
-        {sections.map((s, i) => (
-          <Section key={s.title} n={String(i + 1).padStart(2, "0")} title={s.title} dark={s.dark}>{s.node}</Section>
+        {sections.map((s) => (
+          <Section key={s.title} title={s.title} dark={s.dark}>{s.node}</Section>
         ))}
 
         <nav aria-label="Other case studies" className="border-t border-navy/10 px-6 py-12 md:px-10 md:py-16">
