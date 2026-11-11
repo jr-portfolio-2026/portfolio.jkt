@@ -4,7 +4,6 @@ import { ArrowUpRight } from "lucide-react";
 import { home } from "@/content/home";
 import { kinds, sortedProjects } from "@/content/projects";
 import { ease, reveal } from "./motion";
-import { SectionHeading } from "./SectionHeading";
 import { StatusRail } from "./StatusRail";
 import { Parchment } from "./ProjectPreview";
 import { WorkLine } from "./WorkLine";
@@ -73,24 +72,13 @@ function WorkChapter() {
       <div className="relative mx-auto flex h-full max-w-[90rem] flex-col justify-between gap-16 px-6 py-16 md:px-10 md:py-20 lg:flex-row lg:items-end lg:gap-24 lg:py-28" style={{ minHeight: "inherit" }}>
         {/* Left: the chapter identity */}
         <div className="max-w-[42rem]">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.8, ease }}
-            className="text-[0.6875rem] leading-4 tracking-[0.22em] uppercase text-[#AB894B]"
-          >
-            <span className="mr-4 font-serif text-base tracking-normal normal-case opacity-70">{w.index}</span>
-            {w.note}
-          </motion.p>
-
           <motion.h2
             id="work-title"
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 1.1, ease, delay: reduce ? 0 : 0.1 }}
-            className="mt-7 font-serif font-light leading-[0.92] tracking-[-0.01em] text-[#F9F6EE]"
+            className="font-serif font-light leading-[0.92] tracking-[-0.01em] text-[#F9F6EE]"
             style={{ fontSize: "clamp(3.5rem,8.5vw,8rem)" }}
           >
             {w.title}
@@ -155,10 +143,7 @@ export function Work() {
                   className="grid gap-x-[6%] gap-y-10 py-16 md:py-28 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]"
                 >
                   <div className="lg:sticky lg:top-28 lg:self-start">
-                    <p className="meta-label flex items-baseline gap-4 text-gold-ink">
-                      <span className="font-serif text-xl tracking-normal normal-case">{String(i + 1).padStart(2, "0")}</span>
-                      {p.category}
-                    </p>
+                    <p className="meta-label text-gold-ink">{p.category}</p>
 
                     <h3
                       id={`work-${p.slug}-title`}
