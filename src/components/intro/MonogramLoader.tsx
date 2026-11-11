@@ -1,4 +1,6 @@
 import { motion } from "motion/react";
+import { intro } from "@/content/intro";
+import { site } from "@/content/site";
 
 /**
  * Our "J.R" monogram, animated as a soft liquid contour:
@@ -6,6 +8,8 @@ import { motion } from "motion/react";
  * - turbulence-displaced edge that settles into stillness.
  */
 export function MonogramLoader({ animated = true }: { animated?: boolean }) {
+  const text = site.initials;
+
   return (
     <motion.div
       className="relative flex items-center justify-center"
@@ -23,7 +27,7 @@ export function MonogramLoader({ animated = true }: { animated?: boolean }) {
         viewBox="0 0 600 300"
         className="relative h-[34vmin] w-auto min-h-40"
         role="img"
-        aria-label="J.R monogram"
+        aria-label={`${text} monogram`}
       >
         <defs>
           {animated && (
@@ -80,7 +84,7 @@ export function MonogramLoader({ animated = true }: { animated?: boolean }) {
               letterSpacing="6"
               fill="white"
             >
-              J.R
+              {text}
             </text>
           </mask>
         </defs>
@@ -101,7 +105,7 @@ export function MonogramLoader({ animated = true }: { animated?: boolean }) {
             strokeLinejoin="round"
             opacity="0.85"
           >
-            J.R
+            {text}
           </text>
         </g>
 
@@ -121,7 +125,7 @@ export function MonogramLoader({ animated = true }: { animated?: boolean }) {
           strokeWidth="0.6"
           opacity="0.55"
         >
-          J.R
+          {text}
         </text>
 
         <g filter="url(#softshadow)">
@@ -136,7 +140,7 @@ export function MonogramLoader({ animated = true }: { animated?: boolean }) {
             letterSpacing="6"
             fill="url(#ink)"
           >
-            J.R
+            {text}
           </text>
         </g>
 
@@ -159,7 +163,7 @@ export function MonogramLoader({ animated = true }: { animated?: boolean }) {
             transition={{ duration: animated ? 2.2 : 0, ease: [0.22, 1, 0.36, 1] }}
           />
         </div>
-        <span className="meta-label opacity-60">Entering the portfolio</span>
+        <span className="meta-label opacity-60">{intro.labels.loading}</span>
       </motion.div>
     </motion.div>
   );
